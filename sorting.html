@@ -4,16 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
     <title>Document</title>
-    <link rel="stylesheet" href="bubblesort.css">
+    <link rel="stylesheet" href="sorting.css">
+    <link rel="shortcut icon" href="#" />
 </head>
 <body>
     <H1>Sorting Visualizer</H1>
     
     <div id="MySideNav" class="SideNav">
-        <a ></a>
+        
         <nav>
             <button class="merge">Merge sort</button>
             <button class="bubble">Bubble Sort</button>
@@ -24,19 +26,20 @@
             <button class="selection">Selection sort</button>
         </nav>
     </div>
-    <div>
-        <button class="start">Start</button>
+    <div class="SideNav">
+        <button class="stop">Stop</button>
         <button class="reset">Reset</button>
+    </div>
+    <div class="SideNav">
+        <label for="myRange">Size</label>
+        <input type="range" min="50" max="100" value="60" class="slider" id="myRange">
+        <label for="mySpeed">Speed</label>
+        <input type="range" min="20" max="300" value="60" class="speed" id="mySpeed">
     </div>
     <div id="sorting" class="flex-container">
 
     </div>
-    <div>
-        <label for="myRange">Size</label>
-        <input type="range" min="50" max="100" value="25" class="slider" id="myRange">
-        <label for="mySpeed">Speed</label>
-        <input type="range" min="1" max="50" value="25" class="speed" id="mySpeed">
-    </div>
+    
 
     <div>
         <footer>
@@ -45,6 +48,9 @@
         </footer>
     </div>
 
-    <script src="sorting.js"></script>
+    <script src="sorting.js" async defer></script>
+    <script src="bubbleSort.js" async defer></script>
+    <script src="selectionSort.js"></script>
+    <script src="insertionSort.js" async defer></script>
 </body>
 </html>

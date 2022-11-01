@@ -1,0 +1,32 @@
+.flex-container {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    height: 500px;
+    justify-content: center;
+    transition: 2s all ease;
+} 
+.SideNav{
+    display: flex;
+    justify-content: center;
+}
+.stop,.reset{
+    margin: 10px
+}
+.flex-item {
+    background: #9a031e;
+    border: 1px solid black;
+    width: 10px;
+    transition: 0.1s all ease;
+}
+
+body{
+    background-color: #fb8b24;
+}
+
+#sorting {
+    margin-bottom: 20px;
+    transform: rotate(180deg) scaleX(-1); 
+}
+

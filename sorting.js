@@ -21,84 +21,98 @@ function enableButton(){
 // This function is to disable the Speed Slider input
 function disableSpeedSlider()
 {
-  document.querySelector("#myRange").disabled=true;
+  document.querySelector("#mySpeed").disabled=true;
 }
 // This function is to enable the Speed Slider input
 function enableSpeedSlider()
 {
-  document.querySelector("#myRange").disabled=false;
+  document.querySelector("#mySpeed").disabled=false;
 }
 // This function is to disable the Size Slider input
 function disableSizeSlider()
 {
-  document.querySelector("#mySpeed").disabled=true;
+  document.querySelector("#myRange").disabled=true;
 }
 // This function is to disable the Size Slider input
 function enableSizeSlider()
 {
-  document.querySelector("#mySpeed").disabled=false;
+  document.querySelector("#myRange").disabled=false;
 }
-
-function enableStartBtn()
+// this function will enable stop button
+function enableStopBtn()
 {
-  document.querySelector(".start").disabled=false;
+  document.querySelector(".stop").disabled=false;
 }
-function disableStartBtn()
+// this function will disable start button
+function disableStopBtn()
 {
-  document.querySelector(".start").disabled=true;
-}function enableResetBtn()
+  document.querySelector(".stop").disabled=true;
+}
+// this function will enable reset button
+function enableResetBtn()
 {
   document.querySelector(".reset").disabled=false;
-}function disableResetBtn()
+}
+// this function will disable reset button
+function disableResetBtn()
 {
   document.querySelector(".reset").disabled=true;
 }
 // this function will swap the bar
 function swap(el1,el2)
 {
-  let temp=el1;
-  el1=el2;
-  el2=temp;
+  let temp=el1.style.height;
+  el1.style.height=el2.style.height;
+  el2.style.height=temp;
 }
-
-
 let arraySize= document.querySelector("#myRange")
-
+// this function will take input form size silder and pass that value to the createNewArray function as a parameter.
 arraySize.addEventListener('input',() =>{
   createNewArray(parseInt(arraySize.value))
 })
-
-
+//this function will provide the delay in sorting.
+function delayFunction(milisec){
+  return new Promise(resolve=>{//created a new user defined promise.
+    setTimeout(()=>{ resolve('')},milisec);
+  })
+}
 let barArray=[];
 // this will call the createNewArray function so that when we load the page we wont get a blank page.
 createNewArray();
 
 function createNewArray(noOfBars=60)
 {
+  deleteBars();
+  barArray=[]
   // this will generate the random numbers for the bars
   for(let i=0;i<noOfBars;i++)
   {
-    let randomNum=Math.floor(Math.random()*251)
-    console.log(randomNum)
-    barArray.push(randomNum);
+    barArray.push(Math.floor(Math.random()*251));
+    // barArray[i]=Math.floor(Math.random()*251)
+    // console.log(barArray[i])
+    // barArray.push(barArray[i]);
   }
-  
   // this will create bars
   const bars=document.querySelector("#sorting")
   for(let i=0;i<noOfBars;i++)
   {
-    const bar=document.createElement('div')
-    bar.style.height=`${barArray[i]*2}px`
-    bar.classList.add('bar')
-    bar.classList.add('flex-item')
-    bar.classList.add(`barNumber${i}`)
-    bars.appendChild(bar)
+    const bar=document.createElement('div')//this will create a new div with the given name.
+    bar.style.height=`${barArray[i]*2}px`//this will give the bar its height.
+    bar.classList.add('bar')// this will add class to the bar
+    bar.classList.add('flex-item')// this will add class to the bar
+    bar.classList.add(`barNumber${i}`)// this will add class to the bar
+    bars.appendChild(bar)//this will append bar to the bars div.
   }
   
 }
+// default value for the delay.
 let delay=260
 
+let delayElement=document.querySelector("#mySpeed")
 
+delayElement.addEventListener('input', function () {
+  delay = 320-parseInt(delayElement.value)
+})
 // this will delete the all previous bars
 function deleteBars()
 {
@@ -106,3 +120,22 @@ function deleteBars()
   bar.innerHTML=""
 }
 
+let reset= document.querySelector(".reset")
+
+reset.addEventListener("click", function()
+{ 
+  hasPressedStop = false
+  enableSizeSlider();
+  enableSpeedSlider()
+  createNewArray();
+  enableButton();
+
+})
+let stop= document.querySelector(".stop")
+// this eventListener will stop the sorting
+stop.addEventListener("click", ()=>{
+  hasPressedStop=true
+  disableStopBtn()
+  disableSpeedSlider()
+  enableResetBtn()
+})
