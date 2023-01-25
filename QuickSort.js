@@ -1,27 +1,59 @@
-let hasStopped= new Boolean(false)
+// let hasStopped= new Boolean(false)
 
-async function QuickSort(start, end){
-    let bar=document.querySelectorAll(".bar")
-    let pivot=start;
-    let p=start+1;
-    let q=end;
-    if(start+1==end){
-        return
-    }
-    for(let i=start; i<=end; i++){
-        if(bar[p].style.height<bar[pivot].style.height)
+async function Partition(bar,start, end){
+    let i=end-1;
+    for(let j=start;j<=end-1;j++){
+        if(hasPressedStop==true)
+            return;
+        
+        bar[j].style.background="yellow"
+        await delayFunction(delay)
+        if(hasPressedStop==null)
+            return ;
+        
+        if(parseInt(bar[j].style.height) < parseInt(bar[end].style.height))
         {
-            p++
-        } 
-        if(bar[q].style.height>bar[pivot].style.height)
-        {
-            q--
-        }
+            i++;
+            swap(bar[i],bar[j]);
 
-        if((bar[p].style.height>bar[pivot].style.height)&&(bar[q].style.height<bar[pivot].style.height))
-        {
-            swap(bar[p],bar[q])
+            bar[j].style.background="orange";
+            await delayFunction(delay);
         }
+        
     }
-    
+    i++
+    if(hasPressedStop==null)
+        return;
+    await delayFunction(delay);
+    if(hasPressedStop==null)
+        return ;
+
+    swap(bar[i],bar[end]);
+
+    bar[i].style.background="green";
+
+    if(hasPressedStop==null)
+        return;
+    await delayFunction(delay);
+    if(hasPressedStop==null)
+        return;
+
+    return i;
 }
+
+    async function quickSort(ele,start,end){
+        let pivot =await Partition(ele,start,end);
+        await quickSort(ele,start,pivot-1)
+        await quickSort(ele,pivot+1,end);
+    }
+
+const quickSortBtn=document.querySelector(".quick");
+quickSortBtn.addEventListener("click",async()=>{
+    const bar=document.querySelectorAll(".bar");
+    let start=0;
+    let end=bar.length-1;
+    await quickSort(bar,start,end);
+    disableButton();
+
+});
+
