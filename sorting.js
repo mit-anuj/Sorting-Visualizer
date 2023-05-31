@@ -5,7 +5,6 @@ function disableButton(){
   document.querySelector(".insertion").disabled=true
   document.querySelector(".quick").disabled=true
   document.querySelector(".count").disabled=true
-  document.querySelector(".radix").disabled=true
   document.querySelector(".selection").disabled=true
 }
 // This function is to enable all the buttons
@@ -15,7 +14,6 @@ function enableButton(){
   document.querySelector(".insertion").disabled=false
   document.querySelector(".quick").disabled=false
   document.querySelector(".count").disabled=false
-  document.querySelector(".radix").disabled=false
   document.querySelector(".selection").disabled=false
 }
 // This function is to disable the Speed Slider input
@@ -58,6 +56,7 @@ function disableResetBtn()
 {
   document.querySelector(".reset").disabled=true;
 }
+
 // this function will swap the bar
 function swap(el1,el2)
 {
@@ -65,6 +64,8 @@ function swap(el1,el2)
   el1.style.height=el2.style.height;
   el2.style.height=temp;
 }
+
+
 let arraySize= document.querySelector("#myRange")
 // this function will take input form size silder and pass that value to the createNewArray function as a parameter.
 arraySize.addEventListener('input',() =>{
@@ -134,6 +135,7 @@ reset.addEventListener("click", function()
 let stop= document.querySelector(".stop")
 // this eventListener will stop the sorting
 stop.addEventListener("click", ()=>{
+  console.log("stop")
   hasPressedStop=true
   disableStopBtn()
   disableSpeedSlider()

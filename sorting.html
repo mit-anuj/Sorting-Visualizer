@@ -14,20 +14,24 @@
 <body>
     <H1>Sorting Visualizer</H1>
     
-    <div id="MySideNav" class="SideNav">
-        
-        <nav>
+    <div class="container">
+        <div class="continer1">
             <button class="merge">Merge sort</button>
             <button class="bubble">Bubble Sort</button>
             <button class="insertion">Insertion Sort</button>
+        </div>
+        <div class="container2">
             <button class="quick">Quick Sort</button>
             <button class="count">Count sort</button>
-            <button class="radix">Radix sort</button>
             <button class="selection">Selection sort</button>
-        </nav>
+
+        </div>
+    </div>
+    <div id="MySideNav" class="SideNav">
+        
     </div>
     <div class="SideNav">
-        <button class="stop">Stop</button>
+        <button class="stop" disabled>Stop</button>
         <button class="reset">Reset</button>
     </div>
     <div class="SideNav">
@@ -53,5 +57,6 @@
     <script src="selectionSort.js"></script>
     <script src="insertionSort.js" async defer></script>
     <script src="quickSort.js" async defer></script>
+    <script src="mergeSort.js" async defer></script>
 </body>
 </html>
