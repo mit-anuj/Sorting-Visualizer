@@ -52,6 +52,7 @@ selectbtn.addEventListener("click",async () => {
     else{
         enableResetBtn();
         disableStopBtn();
+        disableSpeedSlider();
     }
 
 })

@@ -48,9 +48,12 @@ insertionSortBtn.addEventListener("click",async ()=>{
     
     await insertionSort();
     if(hasPressedStop==true){
+        enableResetBtn();
+        disableStopBtn();
         disableSpeedSlider();
     }else{
         enableResetBtn();
         disableStopBtn();
+        disableSpeedSlider();
     }
 })

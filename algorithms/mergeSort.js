@@ -137,10 +137,8 @@ mergebtn.addEventListener('click', async () => {
         disableStopBtn()
         disableSpeedSlider()
     } else {
-        enableSizeSlider();
-        enableButton();
-
+        disableSpeedSlider();
+        disableStopBtn();
+        enableResetBtn();
     }
-    disableStopBtn();
-    enableResetBtn();
 })
