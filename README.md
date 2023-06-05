@@ -12,7 +12,7 @@ Implemented algorithms include:
 * [Selection Sort](https://www.geeksforgeeks.org/selection-sort/)
 
 ![Sorting Visualizer](https://user-images.githubusercontent.com/93519859/243294891-ec3ca1fa-ab39-48f0-95c3-7942c5122bc8.png)
-)
+
 
 ## How to use
 
