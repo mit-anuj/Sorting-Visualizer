@@ -44,7 +44,7 @@
 }
 
 body {
-    background-color: #fb8b24;
+    background-color: #fbff8f;
 }
 
 #sorting {
@@ -56,10 +56,10 @@ nav {
     display: flex;
 }
 
-.git,
-a {
-    text-align: 'right';
-    margin-left: auto;
+h1 {
+    text-align: center;
+    margin-left: 39%;
+    margin-bottom: 2%;
 }
 
 input[type="range"] {
@@ -89,7 +89,7 @@ input[type="range"]::-webkit-slider-thumb {
     border-radius: 100%;
 }
 
-button{
+button {
     cursor: pointer;
     border-color: #0f4c5c;
 }
